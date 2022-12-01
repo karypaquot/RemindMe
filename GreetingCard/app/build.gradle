@@ -19,7 +19,11 @@ android {
             useSupportLibrary true
         }
     }
-
+    task wrapper(type: Wrapper){
+        gradleVersion = '7.2'
+    }
+    task prepareKotlinBuildScriptModel {
+    }
     buildTypes {
         release {
             minifyEnabled false
