@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890495604690",
+    "project_id": "cecs491-102ee",
+    "storage_bucket": "cecs491-102ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890495604690:android:005bd4f4134d8e35d95a0b",
+        "android_client_info": {
+          "package_name": "com.example.greetingcard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890495604690-k79jsgod3a94c062hf659jt2e7iqi06n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk4ML44iYlypKSLIOu-UOb-X9JF1JLESg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890495604690-k79jsgod3a94c062hf659jt2e7iqi06n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
