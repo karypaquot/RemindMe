@@ -1,6 +1,9 @@
 package com.example.greetingcard
 //zay
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
+
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,9 +17,41 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.greetingcard.ui.theme.GreetingCardTheme
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.ktx.firestore
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Access a Firestore instance from your Activity
+        val db = Firebase.firestore
+        // Create a new user with a first and last name
+        val user = hashMapOf(
+            "first" to "Ada",
+            "last" to "Lovelace",
+            "born" to 1815
+        )
+
+// Add a new document with a generated ID
+        db.collection("users")
+            .add(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+            }
+        db.collection("users")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
+
         super.onCreate(savedInstanceState)
         setContent {
             GreetingCardTheme {
@@ -29,8 +64,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
     }
 }
+
+
 
 @Composable
 fun Greeting(name: String) {
