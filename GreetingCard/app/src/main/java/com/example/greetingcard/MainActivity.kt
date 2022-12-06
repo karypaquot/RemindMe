@@ -51,16 +51,8 @@ class MainActivity : ComponentActivity() {
             .addOnFailureListener { exception ->
                 Log.w("jules", "Error getting documents.", exception)
             }
-        db.collection("userInfo")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d("jules", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w("jules", "Error getting documents.", exception)
-            }
+
+
 
         super.onCreate(savedInstanceState)
         setContent {
